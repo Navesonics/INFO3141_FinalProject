@@ -1,3 +1,5 @@
+//Author : E_BENITEZ
+
 import React, { useState } from 'react';
 import { View, Image, TextInput, Button, StyleSheet } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';

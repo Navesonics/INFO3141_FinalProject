@@ -1,3 +1,5 @@
+//Author : E_BENITEZ
+
 import React, { useState, useEffect } from 'react';
 import { View, TextInput, Button, Platform, Alert } from 'react-native';
 import * as SMS from 'expo-sms';

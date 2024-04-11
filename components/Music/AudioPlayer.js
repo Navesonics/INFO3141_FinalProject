@@ -1,3 +1,5 @@
+//Author : E_BENITEZ
+
 //AudioPlayer.js
 import React, { useState } from 'react';
 import { StyleSheet, View, TouchableOpacity, Text } from 'react-native';

@@ -1,3 +1,5 @@
+//Author : E_BENITEZ
+
 //LoginPage.js
 import React, { useState } from "react";
 import { View, Text, TextInput, Button, StyleSheet, Image, Alert, TouchableOpacity } from "react-native";

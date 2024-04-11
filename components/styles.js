@@ -1,3 +1,5 @@
+//Author : E_BENITEZ
+
 // styles.js
 import { StyleSheet } from "react-native";
 

@@ -1,3 +1,5 @@
+//Author : E_BENITEZ
+
 import React, { useState } from 'react';
 import { Text, View, TextInput, Button, StyleSheet, Alert } from 'react-native';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
@@ -76,7 +78,7 @@ const handleDateConfirm = (date) => {
       // Register user with Firebase
       await createUserWithEmailAndPassword(auth, registrationEmail, registrationPassword);
       Alert.alert("User registered!");
-      
+
       setPersonalInfo({ firstName: "", lastName: "", dob: new Date() });
       setRegistrationEmail('');
       setRegistrationPassword('');

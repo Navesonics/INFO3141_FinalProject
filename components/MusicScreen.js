@@ -1,3 +1,5 @@
+//Author : E_BENITEZ
+
 import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import AudioRecorder from './Music/AudioRecorder';
