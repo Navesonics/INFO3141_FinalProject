@@ -34,8 +34,8 @@ const LoginPage = ({ route }) => {
         }
 
         try {
-            console.log(auth); // Make sure auth is properly initialized
-            await signInWithEmailAndPassword(auth, loginEmail, loginPassword); // Use signInWithEmailAndPassword method
+            console.log(auth); 
+            await signInWithEmailAndPassword(auth, loginEmail, loginPassword); 
             setLoggedIn(true);
             setLoginPassword('');
             setLoginPassword('');

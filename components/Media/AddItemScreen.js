@@ -44,8 +44,6 @@ const AddNewRoomItemScreen = () => {
     };
 
     const useImage = () => {
-        // Navigate back to the previous screen (MediaScreen) and pass the selected image URI and alt text
-        navigation.goBack();
         navigation.navigate('MediaScreen', { selectedImage: imageUri, altText });
     };
 
@@ -109,11 +107,11 @@ const styles = StyleSheet.create({
         width: '80%',
     },
     buttonWrapper: {
-        marginVertical: 5, // Add space between buttons vertically
-        width: '100%', // Ensure buttons take full width of container
+        marginVertical: 5, 
+        width: '100%', 
     },
     button: {
-        width: '100%', // Ensure buttons take full width of container
+        width: '100%',
     },
 });
 

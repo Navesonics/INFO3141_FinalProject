@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { View, TextInput, Button, StyleSheet, Alert } from 'react-native';
+import { Text, View, TextInput, Button, StyleSheet, Alert } from 'react-native';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from "../FirebaseConfig";
 import { createProfile } from '../Functions/FirebaseFunctions';
 import LogoImage from './Logo';
-import DatePicker from 'react-native-modal-datetime-picker'; // Import DatePicker component
+import DatePicker from 'react-native-modal-datetime-picker'; 
 import moment from 'moment'; 
 import { useNavigation } from "@react-navigation/native";
 
@@ -16,8 +16,8 @@ const SignupPage = () => {
   });
   const [registrationEmail, setRegistrationEmail] = useState('');
   const [registrationPassword, setRegistrationPassword] = useState('');
-  const [isDatePickerVisible, setDatePickerVisibility] = useState(false); // State for date picker visibility
-  const [selectedDate, setSelectedDate] = useState(new Date()); // State for selected date
+  const [isDatePickerVisible, setDatePickerVisibility] = useState(false); 
+  const [selectedDate, setSelectedDate] = useState(new Date()); 
   const navigation = useNavigation();
 
 
@@ -46,13 +46,12 @@ const SignupPage = () => {
 
 const handleDateConfirm = (date) => {
     setSelectedDate(date);
-    setPersonalInfo({ ...personalInfo, dob: moment(date).format("YYYY-MM-DD") }); // Format the selected date
+    setPersonalInfo({ ...personalInfo, dob: moment(date).format("YYYY-MM-DD") }); 
     hideDatePicker();
   };
 
 
   const registerWithFirebase = async () => {
-    // Validation checks
     if (personalInfo.firstName === '' || personalInfo.lastName === '' || personalInfo.dob === '') {
       Alert.alert('Please fill in all required fields.');
       return;
@@ -75,34 +74,26 @@ const handleDateConfirm = (date) => {
 
     try {
       // Register user with Firebase
-      console.log("createUserWithEmailAndPassword 1");
       await createUserWithEmailAndPassword(auth, registrationEmail, registrationPassword);
       Alert.alert("User registered!");
-      console.log("createUserWithEmailAndPassword 2");
-      // Clear input fields after successful registration
+      
       setPersonalInfo({ firstName: "", lastName: "", dob: new Date() });
       setRegistrationEmail('');
       setRegistrationPassword('');
-      console.log("createProfile 1");
+
       await createProfile(profileData).then((success) => {
         if (success) {
-          console.log("Profile created successfully!");
         } else {
-            console.log("createProfile 2");
           console.error("Failed to create profile.");
         }
       })
       .catch((error) => {
-        console.log("createProfile 3");
         console.error("Error:", error);
       });
-
-      // Navigate to the next screen if needed
       navigation.navigate('Login');
     } catch (error) {
       let errorCode = error.code;
-      console.log("errorCode : ", errorCode);
-
+      
       if (errorCode === 'auth/weak-password') {
         Alert.alert('The password is too weak.');
       } else {
@@ -116,30 +107,6 @@ const handleDateConfirm = (date) => {
       <View style={styles.logoContainer}>
         <LogoImage width={350} height={350}/>
       </View>
-      <TextInput
-        style={styles.input}
-        placeholder="First Name"
-        value={personalInfo.firstName}
-        onChangeText={handleFirstNameChange}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Last Name"
-        value={personalInfo.lastName}
-        onChangeText={handleLastNameChange}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Birthdate"
-        value={moment(personalInfo.dob).format("MM/DD/YYYY")} // Display formatted date
-        onFocus={showDatePicker} // Show date picker on focus
-      />
-      <DatePicker
-        isVisible={isDatePickerVisible}
-        mode="date"
-        onConfirm={handleDateConfirm}
-        onCancel={hideDatePicker}
-      />
       <TextInput
         style={styles.input}
         placeholder="Email"
@@ -156,7 +123,33 @@ const handleDateConfirm = (date) => {
         onChangeText={handlePasswordChange}
         secureTextEntry
       />
-      <Button title="Sign up" onPress={registerWithFirebase} color="#FF1493" />
+      <TextInput
+        style={styles.input}
+        placeholder="First Name"
+        value={personalInfo.firstName}
+        onChangeText={handleFirstNameChange}
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="Last Name"
+        value={personalInfo.lastName}
+        onChangeText={handleLastNameChange}
+      />
+      <Text style={styles.label}>BirthDay</Text>
+      <TextInput
+        style={styles.input}
+        placeholder="MM/DD/YYYY"
+        value={moment(personalInfo.dob).format("MM/DD/YYYY")}
+        onFocus={showDatePicker}
+      />
+      <DatePicker
+        isVisible={isDatePickerVisible}
+        mode="date"
+        onConfirm={handleDateConfirm}
+        onCancel={hideDatePicker}
+      />
+      
+      <Button title="Sign up" onPress={registerWithFirebase} color="#9FB798" />
     </View>
   );
 };
@@ -178,6 +171,13 @@ const styles = StyleSheet.create({
     logoContainer: {
     paddingTop: 30,
     padding: 20,
+  },
+  label: {
+    marginBottom: 5,
+    color: 'gray', 
+  },
+  inputContainer: {
+    marginBottom: 20,
   },
 });
 

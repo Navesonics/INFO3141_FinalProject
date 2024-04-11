@@ -9,7 +9,6 @@ const MessageScreen = () => {
   const [deliveryMethod, setDeliveryMethod] = useState(null);
 
   useEffect(() => {
-    // Display an alert message when the screen mounts
     showAlert();
   }, []);
 
@@ -33,12 +32,10 @@ const MessageScreen = () => {
 
   const handleButtonPress = async () => {
     if (!deliveryMethod) {
-      // Alert user to choose delivery method if not selected
       Alert.alert('Please choose a delivery method.');
       return;
     }
 
-    // Validation based on selected delivery method
     if (deliveryMethod === 'sms') {
       if (!/^\d+$/.test(recipient)) {
         Alert.alert('Recipient must contain only numbers.');
@@ -51,7 +48,6 @@ const MessageScreen = () => {
       }
     }
 
-    // Sending the message based on the selected delivery method
     if (deliveryMethod === 'sms') {
         try {
             const { result } = await SMS.sendSMSAsync([recipient], message);

@@ -4,14 +4,13 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import LoginPage from "./components/LoginPage";
 import SignupPage from "./components/SignUpPage";
-//import CreateProfilePage from './components/ContactInput';
 import HomePage from "./components/HomePage";
 import MediaScreen from "./components/MediaScreen";
 import MusicScreen from "./components/MusicScreen";
 import ProfileScreen from "./components/ProfileScreen";
-//import FileScreen from "./components/FileScreen";
+
 import AddItemScreen from "./components/Media/AddItemScreen";
-//import { firestoreDB, auth } from "./FirebaseConfig";
+
 
 
 const Stack = createStackNavigator();

@@ -40,14 +40,14 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     borderRadius: 25,
     overflow: "hidden",
-    marginTop: 10, // Add some margin between the buttons
+    marginTop: 10, 
   },
   buttonContainerSignup: {
     width: "100%",
     alignItems: "center",
     borderRadius: 25,
     overflow: "hidden",
-    marginTop: 10, // Add some margin between the buttons
+    marginTop: 10, 
   },
   button: {
     width: "100%",
@@ -58,6 +58,6 @@ export const styles = StyleSheet.create({
     padding: 20,
   },
   space: {
-        width: 10, // Adjust the width as needed for the desired space
+        width: 10, 
     },
 });

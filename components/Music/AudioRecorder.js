@@ -1,4 +1,4 @@
-// components/AudioRecorder.js
+//AudioRecorder.js
 import React from 'react';
 import { StyleSheet, View, TouchableOpacity, Text , Alert} from 'react-native';
 import { Audio, InterruptionModeIOS , InterruptionModeAndroid} from 'expo-av';

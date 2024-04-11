@@ -22,7 +22,7 @@ const HomePage = () => {
     };
 
     fetchProfile();
-  }, [auth.currentUser.uid]); // Listen to changes in auth.currentUser.uid
+  }, [auth.currentUser.uid]); 
 
   return (
     <Tab.Navigator>

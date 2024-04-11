@@ -5,10 +5,6 @@ const ProfileScreen = ({ profileInfo }) => {
   if (!profileInfo) {
     return <Text>Loading...</Text>;
   }
-  else
-  {
-    console.log("Birthdate: ", profileInfo.dob);
-  }
 
   return (
     <View style={styles.container}>
@@ -29,14 +25,12 @@ const ProfileScreen = ({ profileInfo }) => {
   );
 };
 
-// Function to format date (e.g., "MMM DD, YYYY")
 const formatDate = (dateString) => {
   const date = new Date(dateString);
-  return date.toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "short",
-    day: "2-digit"
-  });
+  const month = date.getMonth() + 1; 
+  const day = date.getDate() + 1; 
+  const year = date.getFullYear(); 
+  return `${month}/${day}/${year}`;
 };
 
 // Function to calculate age
@@ -58,12 +52,12 @@ const styles = StyleSheet.create({
   imageContainer: {
     marginBottom: 20,
     borderRadius: 75,
-    overflow: "hidden" // Ensure the image is clipped to the border radius
+    overflow: "hidden" 
   },
   profileImage: {
     width: 150,
     height: 150,
-    borderRadius: 75 // Half of width/height to create a circular image
+    borderRadius: 75 
   },
   infoContainer: {
     alignItems: "center"

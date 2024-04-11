@@ -132,11 +132,11 @@ const styles = StyleSheet.create({
         width: '80%',
     },
     buttonWrapper: {
-        marginVertical: 5, // Add space between buttons vertically
-        width: '100%', // Ensure buttons take full width of container
+        marginVertical: 5, 
+        width: '100%', 
     },
     button: {
-        width: '100%', // Ensure buttons take full width of container
+        width: '100%', 
     },
     imageContainer: {
         marginBottom: 10,

@@ -1,4 +1,4 @@
-// components/AudioPlayer.js
+//AudioPlayer.js
 import React, { useState } from 'react';
 import { StyleSheet, View, TouchableOpacity, Text } from 'react-native';
 import { Audio, InterruptionModeIOS , InterruptionModeAndroid} from 'expo-av';
